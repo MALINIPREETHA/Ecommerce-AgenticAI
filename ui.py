@@ -13,7 +13,7 @@ st.title("🛒 E-commerce AI Agent")
 st.write("Ask natural language questions about your e-commerce data.")
 
 question = st.text_input("Enter your question:")
-visualize = st.checkbox("Visualize data (if possible)", value=True)
+visualize = st.checkbox("Visualize data", value=True)
 stream_mode = st.checkbox("Enable Live Typing (Streaming Mode)", value=True)
 
 
@@ -72,7 +72,7 @@ if st.button("Ask"):
             try:
                 with st.spinner("Processing your question..."):
                     response = requests.post(
-                        f"{API_BASE}/ask/stream",
+                        f"{API_BASE}/ask_stream",
                         json={"question": question, "visualize": visualize},
                         stream=True
                     )
